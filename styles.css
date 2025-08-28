@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+
+#titulo {
+  font-family:"Asimovian", sans-serif ;
+  color: rgb(36, 230, 165);
+}  
+.corazon{
+  color: rgba(43, 42, 42, 0.5);
+  backdrop-filter: blur(0.4px);
+  -webkit-backdrop-filter: blur(0.4px);
+}
+.corazon:hover{
+  color:rgb(175, 11, 11);
+}
+.eliminar{
+  color: rgb(0, 0, 0);
+}
+.eliminar:hover{
+  color: rgb(51, 206, 90);
+}

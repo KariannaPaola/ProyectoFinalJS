@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/2acc38f85e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body class="bg-slate-950 flex flex-col gap-4 m-[10px]   ">
+    <header class="flex justify-between items-center  ">
+      <h1 class="text-white text-[40px] " id="titulo">Rick and Morty Explorer</h1>
+      <a href="./paginaFavoritos.html" class="text-white fa-solid fa-heart "> Favoritos</a>
+    </header>
+    <section id="seccion" class="grid grid-cols-[max-w-[100px]] md:grid-cols-[auto_auto] lg:grid-cols-[auto_auto_auto] gap-4 justify-around items-center">
+    </section>
+    <div class="flex gap-2 justify-center items-center">
+      <div class="flex flex-col">
+        <button id="btnPrev"><i class="fa-solid fa-arrow-left fa-2x"></i></button>
+        <p class="text-white" id="parrafoAnterior">Anterior</p>
+      </div>
+      <div class="flex flex-col">
+        <button id="btnNext"><i class="fa-solid fa-arrow-right fa-2x"></i></button>
+        <p class="text-white" id="parrafoSiguiente">Siguiente</p>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+  </html>
