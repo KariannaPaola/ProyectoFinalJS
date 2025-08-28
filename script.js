@@ -1,3 +1,11 @@
+/**
+ * @const seccion - seccion del html donde se agregaran las tarjeta de los personajes
+ * @const btnNext y @const btnPrev - botones utilizados para navegar entre paginas.
+ * @let personajesFavoritos = Array que contiene los personajes favoritos 
+ * @let numeroPagina = variable utilizada para realizar la paginacion con el incremento +1 o el decremento -1
+ *@let statusPersonaje= variable utilizada para indicar con el color verde o rojo si un perosnaje esta vivo o no.
+ */
+
 const seccion= document.getElementById("seccion")
 const btnNext=document.getElementById("btnNext")
 const btnPrev=document.getElementById("btnPrev")
@@ -6,11 +14,15 @@ const parrafoAnterior=document.getElementById("parrafoAnterior")
 const personajesFavoritosGuardados = localStorage.getItem("PERSONAJES FAVORITOS");
 let numeroPagina=1; 
 let statusPersonaje=""
-
 let personajesFavoritos = JSON.parse(personajesFavoritosGuardados);
   if(personajesFavoritos===null){
       personajesFavoritos=[]
     }
+
+ /**
+ * @function anadirFavoritos - funcion que permite añadir un nuevo personaje al array de personajes favoritos, usando el metodo push y guardando el personaje en LocalStorage, tambien contiene el metodo find que verifica que el array no contenga ya el personaje que se quiere agregar. Esta funcion es llamada al hacer click en el boton de favorito. Contiene @param personaje, el cual representa cada uno de los elementos del array que contiene la API.
+ */
+
 function anadirFavoritos (personaje){ 
 const personajesAgregados= personajesFavoritos.find((p) => p.id === personaje.id);
   if(personajesAgregados !== undefined){
@@ -21,7 +33,11 @@ const personajesAgregados= personajesFavoritos.find((p) => p.id === personaje.id
     localStorage.setItem("PERSONAJES FAVORITOS", favPersonajesString); 
     alert (personaje.name + " se agrego exitosamente a Personajes Favoritos " )
   }
+
 }
+/**
+ * @async @function getData - funcion asincrona utilizada para obtener los datos de la API
+ */
 
 async function getData(link) {
   try {
@@ -33,14 +49,16 @@ async function getData(link) {
   }
 }
 
+/**
+ * @async @function mostrarData - funcion asincrona utilizada para mostrar los personajes de la API. Contiene @param pagina, el cual representa el numero de pagina en la que se encuentra el usuario. Contiene el metodo forEach para iterar en cada uno de los elementos de la API
+ */
+
 async function mostrarData(pagina) {
   numeroPagina=pagina
   const paginaAct=`https://rickandmortyapi.com/api/character?page=${numeroPagina}`
-  console.log(paginaAct)
   seccion.innerHTML=""  
-  const arrayData= await getData(paginaAct) 
+  const arrayData= await getData(paginaAct)
   arrayData.results.forEach(function(personaje) {
-    console.log(arrayData.results)
     if (personaje.status==="Dead"){
       statusPersonaje="bg-red-500"
     }else if(personaje.status==="Alive"){

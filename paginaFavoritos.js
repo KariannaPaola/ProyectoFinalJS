@@ -3,11 +3,18 @@ const personajesFavoritosGuardados = localStorage.getItem("PERSONAJES FAVORITOS"
 let personajesFavoritos = JSON.parse(personajesFavoritosGuardados);
 let statusPersonaje=""
 
+ /**
+ * @function eliminarFavoritos - funcion que permite eliminar un personaje del array de personajes favoritos, usando el metodo splice y guardando el personaje en LocalStorage. Contiene el @param index, el cual representa el indice del personaje seleccionado en el array.
+ */
 function eliminarFavoritos(index){
   personajesFavoritos.splice(index, 1)
   const favPersonajesString = JSON.stringify(personajesFavoritos); 
   localStorage.setItem("PERSONAJES FAVORITOS", favPersonajesString); 
   mostrarDataFavoritos(personajesFavoritos)
+
+/**
+ * @async @function mostrarDataFavoritos - funcion asincrona utilizada para mostrar los personajes favoritos en la pagina "Favoritos" . Contiene @param arrayFavoritos, el cual representa el array de personajes favoritos del usuario.
+ */
 
 }
 function mostrarDataFavoritos(arrayFavoritos) { 
